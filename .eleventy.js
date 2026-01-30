@@ -1,8 +1,8 @@
 module.exports = function(eleventyConfig) {
-  // Copiar assets estáticos
-  eleventyConfig.addPassthroughCopy("src/assets");
-  eleventyConfig.addPassthroughCopy("src/css");
-  eleventyConfig.addPassthroughCopy("src/js");
+  // Copiar assets estáticos al output
+  eleventyConfig.addPassthroughCopy({"src/css": "css"});
+  eleventyConfig.addPassthroughCopy({"src/js": "js"});
+  eleventyConfig.addPassthroughCopy({"src/assets": "assets"});
   
   // Watch targets
   eleventyConfig.addWatchTarget("src/css/");
