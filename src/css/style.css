@@ -515,17 +515,21 @@ a {
 .cupon-code {
   display: flex;
   flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  margin: var(--spacing-md) 0;
+  width: 100%;
 }
 
 .cupon-code input {
   flex: 1;
-  min-width: 150px;
+  min-width: 0;
+  max-width: 100%;
   padding: 0.75rem;
   border: 2px solid var(--color-amarillo);
   background-color: var(--gris-oscuro);
   color: var(--color-texto);
   font-family: monospace;
-  font-size: 1.1rem;
+  font-size: 1rem;
   border-radius: 8px;
   text-align: center;
 }
@@ -539,9 +543,8 @@ a {
   font-weight: 700;
   cursor: pointer;
   transition: var(--transition);
-  white-space: nowrap
-  cursor: pointer;
-  transition: var(--transition);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .btn-copiar:hover {
@@ -749,8 +752,12 @@ a {
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
   .hero {
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-lg) var(--spacing-sm);
   }
   
   .promo-box {
@@ -758,10 +765,18 @@ a {
     text-align: center;
   }
   
+  .promociones-grid {
+    gap: var(--spacing-md);
+  }
+  
   .especialidades-grid,
-  .promociones-grid,
   .info-grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .promo-card {
+    padding: var(--spacing-md);
   }
   
   .whatsapp-float {
