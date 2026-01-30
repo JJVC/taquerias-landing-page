@@ -327,7 +327,7 @@ a {
 
 .especialidades-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
 }
@@ -460,7 +460,7 @@ a {
 
 .promociones-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-md);
 }
@@ -468,6 +468,7 @@ a {
 @media (max-width: 640px) {
   .promociones-grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-md);
   }
 }
 
@@ -574,7 +575,7 @@ a {
 
 .info-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--spacing-lg);
 }
 
