@@ -202,7 +202,14 @@ a {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 800px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1600px) {
+  .hero-content {
+    max-width: 1200px;
+  }
 }
 
 .hero-logo {
