@@ -47,6 +47,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
@@ -55,6 +57,7 @@ body {
   background-color: var(--color-fondo);
   line-height: 1.6;
   overflow-x: hidden;
+  max-width: 100vw;
 }
 
 img {
@@ -457,9 +460,15 @@ a {
 
 .promociones-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-md);
+}
+
+@media (max-width: 640px) {
+  .promociones-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .promo-card {
@@ -469,6 +478,8 @@ a {
   text-align: center;
   transition: var(--transition);
   border: 3px solid transparent;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .promo-card:hover {
@@ -503,12 +514,12 @@ a {
 
 .cupon-code {
   display: flex;
-  gap: var(--spacing-sm);
-  margin: var(--spacing-md) 0;
+  flex-wrap: wrap;
 }
 
 .cupon-code input {
   flex: 1;
+  min-width: 150px;
   padding: 0.75rem;
   border: 2px solid var(--color-amarillo);
   background-color: var(--gris-oscuro);
@@ -526,6 +537,9 @@ a {
   border: none;
   border-radius: 8px;
   font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap
   cursor: pointer;
   transition: var(--transition);
 }
