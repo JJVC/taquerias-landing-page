@@ -327,9 +327,21 @@ a {
 
 .especialidades-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-xl);
+}
+
+@media (max-width: 992px) {
+  .especialidades-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .especialidades-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .especialidad-card {
@@ -460,12 +472,12 @@ a {
 
 .promociones-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-lg);
   margin-bottom: var(--spacing-md);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .promociones-grid {
     grid-template-columns: 1fr;
     gap: var(--spacing-md);
@@ -575,8 +587,20 @@ a {
 
 .info-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-lg);
+}
+
+@media (max-width: 992px) {
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .info-card {
@@ -764,16 +788,6 @@ a {
   .promo-box {
     flex-direction: column;
     text-align: center;
-  }
-  
-  .promociones-grid {
-    gap: var(--spacing-md);
-  }
-  
-  .especialidades-grid,
-  .info-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-md);
   }
   
   .promo-card {
