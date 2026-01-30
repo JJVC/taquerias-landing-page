@@ -1,0 +1,89 @@
+{
+  "nombre": "Taquería Gaviotas",
+  "slug": "gaviotas",
+  "lema": "El Pastor lo hacemos mejor",
+  "descripcion": "Tacos al pastor con piña, carne de calidad y +10 años de experiencia",
+  
+  "contacto": {
+    "whatsapp": "+527444735256",
+    "whatsappDisplay": "744 473 5256",
+    "ubicacion": {
+      "ciudad": "Acapulco",
+      "colonia": "Llano Largo",
+      "direccion": "Llano Largo, Acapulco, Guerrero",
+      "googleMapsUrl": "https://maps.app.goo.gl/UYxefSkTnVrrSExSA",
+      "googleMapsEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d954.79103520485!2d-99.80497278222923!3d16.81821127851518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ca5b9008114e5d%3A0xd7da88f476f96d17!2sTaquer%C3%ADa%20GAVIOTAS!5e0!3m2!1ses-419!2smx!4v1769787377832!5m2!1ses-419!2smx"
+    }
+  },
+
+  "horarios": {
+    "texto": "Todos los días de 3:00 PM hasta 2:00 AM",
+    "apertura": "15:00",
+    "cierre": "02:00",
+    "todosLosDias": true
+  },
+
+  "especialidades": [
+    {
+      "nombre": "Tacos al Pastor",
+      "descripcion": "Con piña, carne marinada con nuestra receta secreta de +10 años",
+      "destacado": true,
+      "imagen": "https://via.placeholder.com/400x300/FF6B35/FFFFFF?text=Tacos+al+Pastor"
+    },
+    {
+      "nombre": "Tacos de Bistec",
+      "descripcion": "Carne de res de primera calidad, jugosa y bien sazonada",
+      "destacado": false,
+      "imagen": "https://via.placeholder.com/400x300/006847/FFFFFF?text=Tacos+de+Bistec"
+    },
+    {
+      "nombre": "Tacos de Arrachera",
+      "descripcion": "Corte premium, suave y lleno de sabor",
+      "destacado": false,
+      "imagen": "https://via.placeholder.com/400x300/4A90E2/FFFFFF?text=Tacos+de+Arrachera"
+    }
+  ],
+
+  "promociones": {
+    "cupon": {
+      "codigo": "GAVIOTAS2026",
+      "descripcion": "Promoción del día - Menciona este cupón"
+    },
+    "cortesia": {
+      "descripcion": "Agua del día de cortesía en compras mayores a $250",
+      "minimo": 250
+    },
+    "nota": "Solo aplica una promoción por pedido"
+  },
+
+  "mensajeWhatsApp": "¡Hola Taquería Gaviotas! 🌮 Quiero hacer un pedido y solicitar la PROMOCIÓN con el cupón *GAVIOTAS2026*",
+
+  "diferenciadoresUnicos": [
+    "Carne de calidad premium",
+    "Receta secreta con +10 años de perfección",
+    "Abierto hasta las 2:00 AM",
+    "El mejor pastor de Acapulco"
+  ],
+
+  "colores": {
+    "primario": "#FF6B35",
+    "secundario": "#006847",
+    "acento": "#4A90E2",
+    "fondo": "#000000",
+    "texto": "#FFFFFF",
+    "amarillo": "#FDB913"
+  },
+
+  "assets": {
+    "logo": "https://via.placeholder.com/300x150/000000/FF6B35?text=GAVIOTAS",
+    "hero": "https://via.placeholder.com/1920x800/000000/FFFFFF?text=Taquería+Gaviotas",
+    "fachada": "https://via.placeholder.com/800x600/006847/FFFFFF?text=Fachada+Gaviotas",
+    "menu": "https://via.placeholder.com/600x800/000000/FF6B35?text=Menú+Gaviotas"
+  },
+
+  "seo": {
+    "titulo": "Taquería Gaviotas - El Pastor lo hacemos mejor | Acapulco",
+    "descripcion": "Los mejores tacos al pastor de Acapulco. Carne de calidad, receta de +10 años. Abierto hasta las 2AM. ¡Pide ahora por WhatsApp!",
+    "keywords": "tacos acapulco, tacos al pastor, taquería gaviotas, llano largo, tacos noche acapulco"
+  }
+}

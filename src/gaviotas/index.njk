@@ -1,0 +1,243 @@
+---
+layout: layouts/base.njk
+permalink: "/gaviotas/"
+seoData: 
+  titulo: "Taquería Gaviotas - El Pastor lo hacemos mejor | Acapulco"
+  descripcion: "Los mejores tacos al pastor de Acapulco. Carne de calidad, receta de +10 años. Abierto hasta las 2AM. ¡Pide ahora por WhatsApp!"
+  keywords: "tacos acapulco, tacos al pastor, taquería gaviotas, llano largo, tacos noche acapulco"
+heroImage: "https://via.placeholder.com/1920x800/000000/FFFFFF?text=Taquería+Gaviotas"
+whatsappNumber: "527444735256"
+whatsappMsg: "¡Hola Taquería Gaviotas! 🌮 Quiero hacer un pedido y solicitar la PROMOCIÓN con el cupón *GAVIOTAS2026*"
+---
+{% set data = taquerias.gaviotas %}
+{% set whatsappLink = data.contacto.whatsapp | replace('+', '') %}
+{% set whatsappMessage = data.mensajeWhatsApp | urlencode %}
+
+<!-- Hero Section -->
+<section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('{{ data.assets.hero }}');">
+  <div class="container">
+    <div class="hero-content">
+      <img src="{{ data.assets.logo }}" alt="{{ data.nombre }} Logo" class="hero-logo">
+      <h1 class="hero-title">
+        <span class="taqueria-label">Taquería</span>
+        <span class="taqueria-name">{{ data.nombre | replace('Taquería ', '') }}</span>
+      </h1>
+      <p class="hero-lema">{{ data.lema }}</p>
+      
+      <!-- Diferenciadires Rápidos -->
+      <div class="hero-badges">
+        {% for badge in data.diferenciadoresUnicos %}
+        <span class="badge">✓ {{ badge }}</span>
+        {% endfor %}
+      </div>
+      
+      <!-- CTA Principal -->
+      <div class="hero-cta">
+        <a href="https://wa.me/{{ whatsappLink }}?text={{ whatsappMessage }}" 
+           class="btn btn-primary btn-lg"
+           target="_blank">
+          🌮 Haz tu Pedido Ahora
+        </a>
+        <p class="cta-urgencia">⚡ Abierto hasta las 2:00 AM</p>
+      </div>
+      
+      <!-- Promoción Destacada -->
+      <div class="promo-box">
+        <div class="promo-icon">🎁</div>
+        <div class="promo-content">
+          <strong>PROMOCIÓN EXCLUSIVA:</strong>
+          <p>{{ data.promociones.cupon.descripcion }}</p>
+          <span class="promo-code">Cupón: {{ data.promociones.cupon.codigo }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator">
+    <span>Desliza para ver el menú</span>
+    <div class="scroll-arrow">↓</div>
+  </div>
+</section>
+
+<!-- Especialidades Section -->
+<section class="especialidades" id="menu">
+  <div class="container">
+    <h2 class="section-title">Nuestras Especialidades</h2>
+    <p class="section-subtitle">Carne de calidad premium • Receta familiar de +10 años</p>
+    
+    <div class="especialidades-grid">
+      {% for item in data.especialidades %}
+      <div class="especialidad-card {% if item.destacado %}destacado{% endif %}">
+        {% if item.destacado %}
+        <div class="destacado-badge">🔥 MÁS VENDIDO</div>
+        {% endif %}
+        <div class="card-image" style="background-image: url('{{ item.imagen }}');"></div>
+        <div class="card-content">
+          <h3>{{ item.nombre }}</h3>
+          <p>{{ item.descripcion }}</p>
+          <a href="https://wa.me/{{ whatsappLink }}?text=Hola! Quiero ordenar {{ item.nombre }} 🌮" 
+             class="btn btn-secondary"
+             target="_blank">
+            Ordenar Ahora
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
+    <!-- Ver Menú Completo -->
+    <div class="menu-completo">
+      <h3>¿Quieres ver todo el menú?</h3>
+      <img src="{{ data.assets.menu }}" alt="Menú {{ data.nombre }}" class="menu-image">
+      <p class="menu-note">*Los precios pueden variar. Consulta al ordenar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Proof Section (Prueba Social) -->
+<section class="proof-section">
+  <div class="container">
+    <div class="proof-content">
+      <div class="proof-stat">
+        <span class="stat-number">+10</span>
+        <span class="stat-label">Años de Experiencia</span>
+      </div>
+      <div class="proof-stat">
+        <span class="stat-number">⭐⭐⭐⭐⭐</span>
+        <span class="stat-label">Calificación de Clientes</span>
+      </div>
+      <div class="proof-stat">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Carne de Calidad</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Promociones Section -->
+<section class="promociones">
+  <div class="container">
+    <h2 class="section-title">Aprovecha Nuestras Promociones</h2>
+    
+    <div class="promociones-grid">
+      <!-- Cupón Digital -->
+      <div class="promo-card promo-cupon">
+        <div class="promo-header">
+          <span class="promo-emoji">🎟️</span>
+          <h3>Cupón Digital</h3>
+        </div>
+        <p>{{ data.promociones.cupon.descripcion }}</p>
+        <div class="cupon-code">
+          <input type="text" value="{{ data.promociones.cupon.codigo }}" readonly id="cuponCode">
+          <button onclick="copiarCupon()" class="btn-copiar">Copiar</button>
+        </div>
+        <a href="https://wa.me/{{ whatsappLink }}?text={{ whatsappMessage }}" 
+           class="btn btn-primary"
+           target="_blank">
+          Usar Cupón
+        </a>
+      </div>
+      
+      <!-- Cortesía -->
+      <div class="promo-card promo-cortesia">
+        <div class="promo-header">
+          <span class="promo-emoji">💧</span>
+          <h3>Agua de Cortesía</h3>
+        </div>
+        <p>{{ data.promociones.cortesia.descripcion }}</p>
+        <p class="promo-minimo">Compra mínima: <strong>${{ data.promociones.cortesia.minimo }}</strong></p>
+        <a href="https://wa.me/{{ whatsappLink }}?text=Hola! Quiero aprovechar la cortesía de agua 💧" 
+           class="btn btn-secondary"
+           target="_blank">
+          Solicitar Ahora
+        </a>
+      </div>
+    </div>
+    
+    <p class="promociones-nota">⚠️ {{ data.promociones.nota }}</p>
+  </div>
+</section>
+
+<!-- Horarios y Ubicación -->
+<section class="info-section">
+  <div class="container">
+    <div class="info-grid">
+      <!-- Horarios -->
+      <div class="info-card">
+        <div class="info-icon">🕒</div>
+        <h3>Horarios</h3>
+        <p class="info-highlight">{{ data.horarios.texto }}</p>
+        <p class="info-detail">¡Abierto todos los días para ti!</p>
+      </div>
+      
+      <!-- Ubicación -->
+      <div class="info-card">
+        <div class="info-icon">📍</div>
+        <h3>Ubicación</h3>
+        <p class="info-highlight">{{ data.contacto.ubicacion.colonia }}, {{ data.contacto.ubicacion.ciudad }}</p>
+        <a href="{{ data.contacto.ubicacion.googleMapsUrl }}" 
+           target="_blank"
+           class="btn btn-outline">
+          Ver en Google Maps
+        </a>
+      </div>
+      
+      <!-- WhatsApp -->
+      <div class="info-card">
+        <div class="info-icon">📱</div>
+        <h3>WhatsApp</h3>
+        <p class="info-highlight">{{ data.contacto.whatsappDisplay }}</p>
+        <a href="https://wa.me/{{ whatsappLink }}?text={{ whatsappMessage }}" 
+           target="_blank"
+           class="btn btn-whatsapp">
+          Enviar Mensaje
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mapa -->
+<section class="mapa-section">
+  <div class="container">
+    <h2 class="section-title">Encuéntranos Aquí</h2>
+    <div class="mapa-container">
+      <iframe 
+        src="{{ data.contacto.ubicacion.googleMapsEmbed }}"
+        width="100%" 
+        height="450" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Final -->
+<section class="cta-final">
+  <div class="container">
+    <h2>¿Listo para Probar el Mejor Pastor de Acapulco?</h2>
+    <p>Haz tu pedido ahora y menciona tu cupón <strong>{{ data.promociones.cupon.codigo }}</strong></p>
+    <a href="https://wa.me/{{ whatsappLink }}?text={{ whatsappMessage }}" 
+       class="btn btn-primary btn-xl pulse"
+       target="_blank">
+      🌮 Ordenar por WhatsApp
+    </a>
+    <p class="cta-confianza">✓ Pago contra entrega • ✓ Sin costo de envío • ✓ Respuesta inmediata</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <img src="{{ data.assets.logo }}" alt="{{ data.nombre }}" class="footer-logo">
+    <p>&copy; 2026 {{ data.nombre }}. Todos los derechos reservados.</p>
+    <p class="footer-location">{{ data.contacto.ubicacion.direccion }}</p>
+    <div class="footer-social">
+      <a href="https://wa.me/{{ whatsappLink }}" target="_blank">WhatsApp</a>
+    </div>
+  </div>
+</footer>

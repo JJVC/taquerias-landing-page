@@ -1,0 +1,19 @@
+{
+  "name": "tgaviotas-landings",
+  "version": "1.0.0",
+  "description": "Landing pages para taquerías - Sistema escalable con 11ty",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rimraf _site"
+  },
+  "keywords": ["eleventy", "landing-page", "taqueria"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  },
+  "dependencies": {
+    "rimraf": "^5.0.5"
+  }
+}

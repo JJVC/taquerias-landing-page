@@ -1,0 +1,793 @@
+/* ============================================
+   VARIABLES CSS - Paleta Taquería Gaviotas
+   ============================================ */
+:root {
+  /* Colores Principales */
+  --color-primario: #FF6B35;      /* Naranja */
+  --color-secundario: #006847;    /* Verde Bandera */
+  --color-acento: #4A90E2;        /* Azul Marino Claro */
+  --color-fondo: #000000;         /* Negro */
+  --color-texto: #FFFFFF;         /* Blanco */
+  --color-amarillo: #FDB913;      /* Amarillo Pastor */
+  
+  /* Grises */
+  --gris-oscuro: #1a1a1a;
+  --gris-medio: #333333;
+  --gris-claro: #e5e5e5;
+  
+  /* Tipografía */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Espaciado */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 4rem;
+  
+  /* Sombras */
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.2);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,0.3);
+  --shadow-glow: 0 0 20px rgba(255, 107, 53, 0.5);
+  
+  /* Transiciones */
+  --transition: all 0.3s ease;
+}
+
+/* ============================================
+   RESET Y BASE
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ============================================
+   UTILIDADES
+   ============================================ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: 2px;
+  color: var(--color-primario);
+  text-transform: uppercase;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--gris-claro);
+  margin-bottom: var(--spacing-lg);
+  font-size: 1.1rem;
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+.btn {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 50px;
+  transition: var(--transition);
+  cursor: pointer;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primario), #ff8555);
+  color: var(--color-fondo);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(255, 107, 53, 0.8);
+}
+
+.btn-secondary {
+  background-color: var(--color-secundario);
+  color: var(--color-texto);
+}
+
+.btn-secondary:hover {
+  background-color: #008055;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--color-primario);
+  color: var(--color-primario);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primario);
+  color: var(--color-fondo);
+}
+
+.btn-whatsapp {
+  background-color: #25D366;
+  color: white;
+}
+
+.btn-whatsapp:hover {
+  background-color: #20bd5a;
+  transform: translateY(-2px);
+}
+
+.btn-lg {
+  padding: 1.25rem 3rem;
+  font-size: 1.25rem;
+}
+
+.btn-xl {
+  padding: 1.5rem 4rem;
+  font-size: 1.5rem;
+}
+
+/* Animación Pulse */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  text-align: center;
+  padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+}
+
+.hero-logo {
+  max-width: 250px;
+  margin: 0 auto var(--spacing-md);
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1;
+  margin-bottom: var(--spacing-sm);
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+}
+
+.taqueria-label {
+  display: block;
+  color: var(--color-secundario);
+  font-size: 0.5em;
+  letter-spacing: 3px;
+}
+
+.taqueria-name {
+  display: block;
+  color: var(--color-primario);
+  letter-spacing: 5px;
+}
+
+.hero-lema {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--color-amarillo);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  justify-content: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.badge {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--color-primario);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  backdrop-filter: blur(10px);
+}
+
+.hero-cta {
+  margin: var(--spacing-lg) 0;
+}
+
+.cta-urgencia {
+  margin-top: var(--spacing-sm);
+  color: var(--color-amarillo);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.promo-box {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  background: linear-gradient(135deg, rgba(255,107,53,0.2), rgba(253,185,19,0.2));
+  border: 2px solid var(--color-primario);
+  border-radius: 15px;
+  padding: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+  max-width: 600px;
+  backdrop-filter: blur(10px);
+  text-align: left;
+}
+
+.promo-icon {
+  font-size: 3rem;
+}
+
+.promo-content strong {
+  color: var(--color-primario);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.promo-code {
+  display: inline-block;
+  background-color: var(--color-fondo);
+  border: 2px dashed var(--color-amarillo);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-family: monospace;
+  font-size: 1.1rem;
+  color: var(--color-amarillo);
+  margin-top: 0.5rem;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: var(--gris-claro);
+  opacity: 0.7;
+}
+
+.scroll-arrow {
+  font-size: 2rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* ============================================
+   ESPECIALIDADES
+   ============================================ */
+.especialidades {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--gris-oscuro);
+}
+
+.especialidades-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.especialidad-card {
+  background-color: var(--gris-medio);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: var(--transition);
+  position: relative;
+}
+
+.especialidad-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.especialidad-card.destacado {
+  border: 3px solid var(--color-primario);
+  box-shadow: var(--shadow-glow);
+}
+
+.destacado-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--color-primario);
+  color: var(--color-fondo);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  z-index: 2;
+  text-transform: uppercase;
+}
+
+.card-image {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-content {
+  padding: var(--spacing-md);
+}
+
+.card-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--color-primario);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: 2px;
+}
+
+.card-content p {
+  margin-bottom: var(--spacing-md);
+  color: var(--gris-claro);
+}
+
+.menu-completo {
+  text-align: center;
+  margin-top: var(--spacing-xl);
+  padding: var(--spacing-lg);
+  background-color: var(--gris-medio);
+  border-radius: 15px;
+}
+
+.menu-completo h3 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-amarillo);
+  margin-bottom: var(--spacing-md);
+  letter-spacing: 2px;
+}
+
+.menu-image {
+  max-width: 600px;
+  margin: var(--spacing-md) auto;
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+}
+
+.menu-note {
+  color: var(--gris-claro);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+/* ============================================
+   PROOF SECTION (Prueba Social)
+   ============================================ */
+.proof-section {
+  background: linear-gradient(135deg, var(--color-primario), var(--color-amarillo));
+  padding: var(--spacing-lg) 0;
+  color: var(--color-fondo);
+}
+
+.proof-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  text-align: center;
+}
+
+.proof-stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* ============================================
+   PROMOCIONES
+   ============================================ */
+.promociones {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--color-fondo);
+}
+
+.promociones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+}
+
+.promo-card {
+  background-color: var(--gris-medio);
+  border-radius: 15px;
+  padding: var(--spacing-lg);
+  text-align: center;
+  transition: var(--transition);
+  border: 3px solid transparent;
+}
+
+.promo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.promo-cupon {
+  border-color: var(--color-amarillo);
+}
+
+.promo-cortesia {
+  border-color: var(--color-acento);
+}
+
+.promo-header {
+  margin-bottom: var(--spacing-md);
+}
+
+.promo-emoji {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: var(--spacing-sm);
+}
+
+.promo-header h3 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-primario);
+  letter-spacing: 2px;
+}
+
+.cupon-code {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin: var(--spacing-md) 0;
+}
+
+.cupon-code input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 2px solid var(--color-amarillo);
+  background-color: var(--gris-oscuro);
+  color: var(--color-texto);
+  font-family: monospace;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.btn-copiar {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-amarillo);
+  color: var(--color-fondo);
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-copiar:hover {
+  background-color: #ffc433;
+}
+
+.promo-minimo {
+  font-size: 1.2rem;
+  margin: var(--spacing-sm) 0;
+  color: var(--color-acento);
+}
+
+.promociones-nota {
+  text-align: center;
+  color: var(--color-primario);
+  font-size: 1.1rem;
+  margin-top: var(--spacing-md);
+}
+
+/* ============================================
+   INFO SECTION
+   ============================================ */
+.info-section {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--gris-oscuro);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.info-card {
+  background-color: var(--gris-medio);
+  border-radius: 15px;
+  padding: var(--spacing-lg);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--color-primario);
+}
+
+.info-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.info-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--color-primario);
+  margin-bottom: var(--spacing-sm);
+  letter-spacing: 2px;
+}
+
+.info-highlight {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-texto);
+  margin-bottom: var(--spacing-sm);
+}
+
+.info-detail {
+  color: var(--gris-claro);
+  margin-bottom: var(--spacing-md);
+}
+
+/* ============================================
+   MAPA
+   ============================================ */
+.mapa-section {
+  padding: var(--spacing-xl) 0;
+  background-color: var(--color-fondo);
+}
+
+.mapa-container {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.mapa-container iframe {
+  display: block;
+}
+
+/* ============================================
+   CTA FINAL
+   ============================================ */
+.cta-final {
+  padding: var(--spacing-xl) 0;
+  background: linear-gradient(135deg, var(--color-secundario), #008055);
+  text-align: center;
+}
+
+.cta-final h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: var(--spacing-md);
+  letter-spacing: 2px;
+}
+
+.cta-final p {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.cta-confianza {
+  margin-top: var(--spacing-md);
+  font-size: 1rem !important;
+  opacity: 0.9;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  background-color: var(--gris-oscuro);
+  padding: var(--spacing-lg) 0;
+  text-align: center;
+  border-top: 3px solid var(--color-primario);
+}
+
+.footer-logo {
+  max-width: 200px;
+  margin: 0 auto var(--spacing-md);
+}
+
+.footer-location {
+  color: var(--gris-claro);
+  margin: var(--spacing-sm) 0;
+}
+
+.footer-social {
+  margin-top: var(--spacing-md);
+}
+
+.footer-social a {
+  color: var(--color-primario);
+  margin: 0 var(--spacing-sm);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.footer-social a:hover {
+  color: var(--color-amarillo);
+}
+
+/* ============================================
+   WHATSAPP FLOATING BUTTON
+   ============================================ */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #25D366;
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.5);
+  transition: var(--transition);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.7);
+}
+
+.whatsapp-float svg {
+  width: 32px;
+  height: 32px;
+}
+
+.whatsapp-text {
+  display: none;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+}
+
+.whatsapp-float:hover svg {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (min-width: 768px) {
+  .whatsapp-text {
+    display: inline;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  
+  .promo-box {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .especialidades-grid,
+  .promociones-grid,
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .whatsapp-float {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 1rem;
+  }
+  
+  .btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+  
+  .btn-xl {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.3rem;
+  }
+}
+
+/* ============================================
+   ANIMACIONES ADICIONALES
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.especialidad-card,
+.promo-card,
+.info-card {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Stagger animation */
+.especialidad-card:nth-child(1) { animation-delay: 0.1s; }
+.especialidad-card:nth-child(2) { animation-delay: 0.2s; }
+.especialidad-card:nth-child(3) { animation-delay: 0.3s; }
