@@ -89,7 +89,13 @@ a {
 
 @media (min-width: 2400px) {
   .container {
-    max-width: 2200px;
+    max-width: 2400px;
+  }
+}
+
+@media (min-width: 3000px) {
+  .container {
+    max-width: 2800px;
   }
 }
 
@@ -220,7 +226,13 @@ a {
 
 @media (min-width: 2400px) {
   .hero-content {
-    max-width: 1800px;
+    max-width: 2000px;
+  }
+}
+
+@media (min-width: 3000px) {
+  .hero-content {
+    max-width: 2600px;
   }
 }
 
