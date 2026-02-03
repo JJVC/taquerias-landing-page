@@ -252,7 +252,7 @@ a {
 }
 
 .hero-logo {
-  max-width: 250px;
+  max-width: 450px;
   margin: 0 auto var(--spacing-md);
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
 }
