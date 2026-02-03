@@ -89,8 +89,11 @@ whatsappMsg: "¡Hola Taquería Gaviotas! 🌮 Quiero hacer un pedido y solicitar
     <!-- Ver Menú Completo -->
     <div class="menu-completo">
       <h3>¿Quieres ver todo el menú?</h3>
-      <img src="{{ data.assets.menu }}" alt="Menú {{ data.nombre }}" class="menu-image">
-      <p class="menu-note">*Los precios pueden variar. Consulta al ordenar.</p>
+      <a href="https://wa.me/{{ whatsappLink }}?text=Hola! Me puede mandar su menú 🌮" 
+        class="btn btn-secondary"
+        target="_blank">
+        Pedir menú
+      </a>
     </div>
   </div>
 </section>
