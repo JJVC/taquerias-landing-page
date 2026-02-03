@@ -28,19 +28,19 @@
       "nombre": "Tacos al Pastor",
       "descripcion": "Con piña, carne marinada con nuestra receta secreta de +10 años",
       "destacado": true,
-      "imagen": "/taquerias-landing-page/images/gaviotas/pastor.jpg"
+      "imagen": "/taquerias-landing-page/images/gaviotas/pastor.svg"
     },
     {
       "nombre": "Tacos de Bistec",
       "descripcion": "Carne de res de primera calidad, jugosa y bien sazonada",
       "destacado": false,
-      "imagen": "/taquerias-landing-page/images/gaviotas/bistec.jpg"
+      "imagen": "/taquerias-landing-page/images/gaviotas/bistec.svg"
     },
     {
       "nombre": "Tacos de Arrachera",
       "descripcion": "Corte premium, suave y lleno de sabor",
       "destacado": false,
-      "imagen": "/taquerias-landing-page/images/gaviotas/arrachera.jpg"
+      "imagen": "/taquerias-landing-page/images/gaviotas/arrachera.svg"
     }
   ],
 
@@ -75,10 +75,10 @@
   },
 
   "assets": {
-    "logo": "/taquerias-landing-page/images/gaviotas/logo.png",
-    "hero": "/taquerias-landing-page/images/gaviotas/hero.jpg",
-    "fachada": "/taquerias-landing-page/images/gaviotas/fachada.jpg",
-    "menu": "/taquerias-landing-page/images/gaviotas/menu.jpg"
+    "logo": "/taquerias-landing-page/images/gaviotas/logo.svg",
+    "hero": "/taquerias-landing-page/images/gaviotas/hero.svg",
+    "fachada": "/taquerias-landing-page/images/gaviotas/fachada.svg",
+    "menu": "/taquerias-landing-page/images/gaviotas/menu.svg"
   },
 
   "seo": {

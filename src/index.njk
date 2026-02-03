@@ -159,6 +159,35 @@ whatsappMsg: "¡Hola Taquería Gaviotas! 🌮 Quiero hacer un pedido y solicitar
   </div>
 </section>
 
+<!-- Galería del Local -->
+<section class="galeria-section">
+  <div class="container">
+    <h2 class="section-title">Conoce Nuestro Local</h2>
+    <p class="section-subtitle">Un ambiente familiar en el corazón de {{ data.contacto.ubicacion.colonia }}</p>
+    
+    <div class="galeria-content">
+      <div class="galeria-image">
+        <img src="{{ data.assets.fachada }}" alt="Fachada de {{ data.nombre }}" loading="lazy">
+      </div>
+      <div class="galeria-text">
+        <h3>📍 Nos encontramos en {{ data.contacto.ubicacion.colonia }}</h3>
+        <p>Un local acogedor donde la tradición y el sabor se encuentran. Ven a disfrutar de nuestros tacos en un ambiente familiar.</p>
+        <ul class="galeria-features">
+          <li>✓ Espacio limpio y cómodo</li>
+          <li>✓ Atención personalizada</li>
+          <li>✓ Preparación a la vista</li>
+          <li>✓ Para comer aquí o llevar</li>
+        </ul>
+        <a href="{{ data.contacto.ubicacion.googleMapsUrl }}" 
+           target="_blank"
+           class="btn btn-primary">
+          📍 Cómo Llegar
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Horarios y Ubicación -->
 <section class="info-section">
   <div class="container">
