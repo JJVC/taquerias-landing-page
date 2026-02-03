@@ -68,12 +68,8 @@ img {
   display: block;
 }
 
-/* Prevenir desbordamiento en móviles */
+/* Prevenir desbordamiento de imágenes en móviles */
 @media (max-width: 640px) {
-  * {
-    max-width: 100%;
-  }
-  
   img, svg {
     max-width: 100%;
     height: auto;
