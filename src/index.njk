@@ -40,23 +40,27 @@ whatsappMsg: "¡Hola Taquería Gaviotas! 🌮 Quiero hacer un pedido y solicitar
         </a>
         <p class="cta-urgencia">⚡ Abierto hasta las 2:00 AM</p>
       </div>
-      
-      <!-- Promoción Destacada -->
-      <div class="promo-box">
-        <div class="promo-icon">🎁</div>
-        <div class="promo-content">
-          <strong>PROMOCIÓN EXCLUSIVA:</strong>
-          <p>{{ data.promociones.cupon.descripcion }}</p>
-          <span class="promo-code">Cupón: {{ data.promociones.cupon.codigo }}</span>
-        </div>
-      </div>
     </div>
   </div>
   
   <!-- Scroll Indicator -->
   <div class="scroll-indicator">
-    <span>Desliza para ver el menú</span>
+    <span>Desliza para ver PROMOCIONES</span>
     <div class="scroll-arrow">↓</div>
+  </div>
+</section>
+
+<!-- Promoción Destacada Section -->
+<section style="padding: var(--spacing-md) 0; background-color: var(--color-fondo);">
+  <div class="container">
+    <div class="promo-box">
+      <div class="promo-icon">🎁</div>
+      <div class="promo-content">
+        <strong>PROMOCIÓN EXCLUSIVA:</strong>
+        <p>{{ data.promociones.cupon.descripcion }}</p>
+        <span class="promo-code">Cupón: {{ data.promociones.cupon.codigo }}</span>
+      </div>
+    </div>
   </div>
 </section>
 
