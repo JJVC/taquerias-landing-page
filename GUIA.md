@@ -140,7 +140,7 @@ El mensaje se configura en el JSON:
 "mensajeWhatsApp": "¡Hola! Quiero hacer un pedido con el cupón GAVIOTAS2026"
 ```
 
-Se convierte automáticamente en enlace: `https://wa.me/527444735256?text=...`
+Se convierte automáticamente en enlace: `https://wa.me/527444338810?text=...`
 
 ## 📱 Features
 
