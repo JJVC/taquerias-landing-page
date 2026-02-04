@@ -2,7 +2,7 @@
   "nombre": "Taquería Gaviotas",
   "slug": "gaviotas",
   "lema": "El Pastor lo hacemos mejor",
-  "descripcion": "Tacos al pastor con piña, carne de calidad y +10 años de experiencia",
+  "descripcion": "Tacos al pastor con piña, carne de calidad y +25 años de experiencia",
   
   "contacto": {
     "whatsapp": "+527444735256",
@@ -26,7 +26,7 @@
   "especialidades": [
     {
       "nombre": "Tacos al Pastor",
-      "descripcion": "Con piña, carne marinada con nuestra receta secreta de +10 años",
+      "descripcion": "Con piña, carne marinada con nuestra receta secreta de +25 años",
       "destacado": true,
       "imagen": "/taquerias-landing-page/images/gaviotas/pastor.svg"
     },
