@@ -1,8 +1,6 @@
 {
   "nombre": "Taquería Gaviotas",
-  "slug": "gaviotas",
   "lema": "El Pastor lo hacemos mejor",
-  "descripcion": "Tacos al pastor con piña, carne de calidad y +25 años de experiencia",
   
   "contacto": {
     "whatsapp": "+527444338810",
@@ -68,15 +66,6 @@
     "Abierto hasta las 2:00 AM",
     "El mejor pastor de Acapulco"
   ],
-
-  "colores": {
-    "primario": "#FF6B35",
-    "secundario": "#006847",
-    "acento": "#4A90E2",
-    "fondo": "#000000",
-    "texto": "#FFFFFF",
-    "amarillo": "#FDB913"
-  },
 
   "assets": {
     "logo": "/taquerias-landing-page/images/gaviotas/logo.png",
