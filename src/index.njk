@@ -51,7 +51,10 @@ whatsappMsg: "¡Hola Taquería Gaviotas! 🌮 Quiero hacer un pedido y solicitar
 </section>
 
 <!-- Promoción Destacada Section -->
-<section style="padding: var(--spacing-md) 0; background-color: var(--color-fondo);">
+<section class="promo-destacada-temporal" 
+         data-fecha-inicio="{{ data.promociones.temporal.fechaInicio }}" 
+         data-fecha-fin="{{ data.promociones.temporal.fechaFin }}"
+         style="padding: var(--spacing-md) 0; background-color: var(--color-fondo);">
   <div class="container">
     <div class="promo-box">
       <div class="promo-icon">🎁</div>

@@ -2,6 +2,55 @@
 // FUNCIONES PRINCIPALES
 // ============================================
 
+// ============================================
+// CONTROL DE CONTENIDO TEMPORAL POR FECHAS
+// ============================================
+
+// Controlar visibilidad de contenido basado en fechas/horas
+function manejarContenidoTemporal() {
+  const ahora = new Date();
+  
+  // Seleccionar todos los elementos con atributos de fecha
+  const elementosTemporales = document.querySelectorAll('[data-fecha-inicio][data-fecha-fin]');
+  
+  elementosTemporales.forEach(elemento => {
+    try {
+      // Parsear fechas (soporta formato ISO 8601 con zona horaria)
+      const fechaInicio = new Date(elemento.dataset.fechaInicio);
+      const fechaFin = new Date(elemento.dataset.fechaFin);
+      
+      // Validar que las fechas sean válidas
+      if (isNaN(fechaInicio.getTime()) || isNaN(fechaFin.getTime())) {
+        console.error('Fechas inválidas en elemento:', elemento);
+        return;
+      }
+      
+      // Verificar si estamos dentro del rango
+      const estaActivo = ahora >= fechaInicio && ahora <= fechaFin;
+      
+      if (estaActivo) {
+        elemento.style.display = ''; // Mostrar
+        console.log('Contenido temporal visible:', elemento.className);
+      } else {
+        elemento.style.display = 'none'; // Ocultar
+        console.log('Contenido temporal oculto:', elemento.className);
+      }
+      
+      // Log para debugging (opcional, comentar en producción)
+      const tiempoRestante = estaActivo ? fechaFin - ahora : fechaInicio - ahora;
+      const horasRestantes = Math.floor(tiempoRestante / (1000 * 60 * 60));
+      const minutosRestantes = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
+      
+      if (estaActivo) {
+        console.log(`Tiempo restante: ${horasRestantes}h ${minutosRestantes}m`);
+      }
+      
+    } catch (error) {
+      console.error('Error al procesar contenido temporal:', error);
+    }
+  });
+}
+
 // Copiar cupón al clipboard
 function copiarCupon() {
   const cuponInput = document.getElementById('cuponCode');
@@ -82,6 +131,12 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Iniciar observación de elementos
   observeElements();
+  
+  // Controlar contenido temporal
+  manejarContenidoTemporal();
+  
+  // Revisar cada minuto si el contenido temporal debe cambiar
+  setInterval(manejarContenidoTemporal, 60000); // 60000ms = 1 minuto
 });
 
 // ============================================

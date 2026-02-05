@@ -53,7 +53,11 @@
       "descripcion": "Agua del día de cortesía en compras mayores a $250",
       "minimo": 250
     },
-    "nota": "Solo aplica una promoción por pedido"
+    "nota": "Solo aplica una promoción por pedido",
+    "temporal": {
+      "fechaInicio": "2026-02-04T18:15:00-06:00",
+      "fechaFin": "2026-02-04T19:00:00-06:00"
+    }
   },
 
   "mensajeWhatsApp": "¡Hola Taquería Gaviotas! 🌮 Quiero hacer un pedido y solicitar la PROMOCIÓN con el cupón *GAVIOTAS2026*",
