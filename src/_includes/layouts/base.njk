@@ -29,7 +29,7 @@
   {{ content | safe }}
   
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/{{ whatsappNumber }}?text={{ whatsappMsg }}" 
+  <a href="https://wa.me/{{ whatsappNumber | default(data.contacto.whatsapp | replace('+', '')) }}?text={{ whatsappMsg | default(data.mensajeWhatsApp | urlencode) }}" 
      class="whatsapp-float" 
      target="_blank"
      rel="noopener noreferrer"

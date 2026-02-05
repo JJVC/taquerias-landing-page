@@ -6,12 +6,10 @@ seoData:
   descripcion: "Los mejores tacos al pastor de Acapulco. Carne de calidad, receta de +25 años. Abierto hasta las 2AM. ¡Pide ahora por WhatsApp!"
   keywords: "tacos acapulco, tacos al pastor, taquería gaviotas, llano largo, tacos noche acapulco"
 heroImage: "https://via.placeholder.com/1920x800/000000/FFFFFF?text=Taquería+Gaviotas"
-whatsappNumber: "527444338810"
-whatsappMsg: "¡Hola Taquería Gaviotas! 🌮 Quiero hacer un pedido y solicitar la PROMOCIÓN con el cupón *GAVIOTAS2026*"
 ---
 {% set data = taquerias.gaviotas %}
-{% set whatsappLink = data.contacto.whatsapp | replace('+', '') %}
-{% set whatsappMessage = data.mensajeWhatsApp | urlencode %}
+{% set whatsappNumber = data.contacto.whatsapp | replace('+', '') %}
+{% set whatsappMsg = data.mensajeWhatsApp | urlencode %}
 
 <!-- Hero Section -->
 <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('{{ data.assets.hero }}');">
@@ -33,7 +31,7 @@ whatsappMsg: "¡Hola Taquería Gaviotas! 🌮 Quiero hacer un pedido y solicitar
       
       <!-- CTA Principal -->
       <div class="hero-cta">
-        <a href="https://wa.me/{{ whatsappLink }}?text={{ whatsappMessage }}" 
+        <a href="https://wa.me/{{ whatsappNumber }}?text={{ whatsappMsg }}" 
            class="btn btn-primary btn-lg"
            target="_blank">
           🌮 Haz tu Pedido Ahora
@@ -83,7 +81,7 @@ whatsappMsg: "¡Hola Taquería Gaviotas! 🌮 Quiero hacer un pedido y solicitar
         <div class="card-content">
           <h3>{{ item.nombre }}</h3>
           <p>{{ item.descripcion }}</p>
-          <a href="https://wa.me/{{ whatsappLink }}?text=Hola! Quiero ordenar {{ item.nombre }} 🌮" 
+          <a href="https://wa.me/{{ whatsappNumber }}?text=Hola! Quiero ordenar {{ item.nombre }} 🌮" 
              class="btn btn-secondary"
              target="_blank">
             Ordenar Ahora
@@ -96,7 +94,7 @@ whatsappMsg: "¡Hola Taquería Gaviotas! 🌮 Quiero hacer un pedido y solicitar
     <!-- Ver Menú Completo -->
     <div class="menu-completo">
       <h3>¿Quieres ver todo el menú?</h3>
-      <a href="https://wa.me/{{ whatsappLink }}?text=Hola! Me puede mandar su menú 🌮" 
+      <a href="https://wa.me/{{ whatsappNumber }}?text=Hola! Me puede mandar su menú 🌮" 
         class="btn btn-secondary"
         target="_blank">
         Pedir menú
@@ -144,7 +142,7 @@ whatsappMsg: "¡Hola Taquería Gaviotas! 🌮 Quiero hacer un pedido y solicitar
           <input type="text" value="{{ data.promociones.cupon.codigo }}" readonly id="cuponCode">
           <button onclick="copiarCupon()" class="btn-copiar">Copiar</button>
         </div>
-        <a href="https://wa.me/{{ whatsappLink }}?text={{ whatsappMessage }}" 
+        <a href="https://wa.me/{{ whatsappNumber }}?text={{ whatsappMsg }}" 
            class="btn btn-primary"
            target="_blank">
           Usar Cupón
@@ -159,7 +157,7 @@ whatsappMsg: "¡Hola Taquería Gaviotas! 🌮 Quiero hacer un pedido y solicitar
         </div>
         <p>{{ data.promociones.cortesia.descripcion }}</p>
         <p class="promo-minimo">Compra mínima: <strong>${{ data.promociones.cortesia.minimo }}</strong></p>
-        <a href="https://wa.me/{{ whatsappLink }}?text=Hola! Quiero aprovechar la cortesía de agua 💧" 
+        <a href="https://wa.me/{{ whatsappNumber }}?text=Hola! Quiero aprovechar la cortesía de agua 💧" 
            class="btn btn-secondary"
            target="_blank">
           Solicitar Ahora
@@ -229,7 +227,7 @@ whatsappMsg: "¡Hola Taquería Gaviotas! 🌮 Quiero hacer un pedido y solicitar
         <div class="info-icon">📱</div>
         <h3>WhatsApp</h3>
         <p class="info-highlight">{{ data.contacto.whatsappDisplay }}</p>
-        <a href="https://wa.me/{{ whatsappLink }}?text={{ whatsappMessage }}" 
+        <a href="https://wa.me/{{ whatsappNumber }}?text={{ whatsappMsg }}" 
            target="_blank"
            class="btn btn-whatsapp">
           Enviar Mensaje
@@ -262,7 +260,7 @@ whatsappMsg: "¡Hola Taquería Gaviotas! 🌮 Quiero hacer un pedido y solicitar
   <div class="container">
     <h2>¿Listo para Probar el Mejor Pastor de Acapulco?</h2>
     <p>Haz tu pedido ahora y menciona tu cupón <strong>{{ data.promociones.cupon.codigo }}</strong></p>
-    <a href="https://wa.me/{{ whatsappLink }}?text={{ whatsappMessage }}" 
+    <a href="https://wa.me/{{ whatsappNumber }}?text={{ whatsappMsg }}" 
        class="btn btn-primary btn-xl pulse"
        target="_blank">
       🌮 Ordenar por WhatsApp
@@ -278,7 +276,7 @@ whatsappMsg: "¡Hola Taquería Gaviotas! 🌮 Quiero hacer un pedido y solicitar
     <p>&copy; 2026 {{ data.nombre }}. Todos los derechos reservados.</p>
     <p class="footer-location">{{ data.contacto.ubicacion.direccion }}</p>
     <div class="footer-social">
-      <a href="https://wa.me/{{ whatsappLink }}" target="_blank">WhatsApp</a>
+      <a href="https://wa.me/{{ whatsappNumber }}" target="_blank">WhatsApp</a>
     </div>
   </div>
 </footer>
