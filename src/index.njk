@@ -6,7 +6,7 @@ permalink: "/"
 {% set seoData = data.seo %}
 {% set heroImage = data.assets.hero %}
 {% set whatsappNumber = data.contacto.whatsapp | replace('+', '') %}
-{% set whatsappMsg = data.mensajeWhatsApp | urlencode %}
+{% set whatsappMsg = (data.mensajeWhatsApp ~ ' - Cupón: PLACEHOLDER') | urlencode %}
 
 <!-- Hero Section -->
 <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('{{ data.assets.hero }}');">

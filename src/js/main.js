@@ -3,6 +3,117 @@
 // ============================================
 
 // ============================================
+// GENERADOR DE CUPONES DINÁMICOS
+// ============================================
+
+/**
+ * Genera un cupón único basado en la fecha y hora actual
+ * Formato: [B1]-[B2]-[B3]-[B4]
+ * B1 (4 chars): Y R R R (Y=Año en Base36, R=aleatorio)
+ * B2 (4 chars): R R M M (RR=aleatorio, MM=mes 01-12)
+ * B3 (4 chars): R D D R (DD=día 01-31, extremos aleatorios)
+ * B4 (4 chars): H H M M (HHMM=hora exacta 24h)
+ * 
+ * Ejemplo: 04/Feb/2026 13:25 -> QLZA-LK02-X04T-1325
+ */
+function generarCupon() {
+  const ahora = new Date();
+  
+  // Funciones auxiliares
+  const obtenerAñoBase36 = () => {
+    const año = ahora.getFullYear();
+    const dosUltimosDigitos = año % 100; // 2026 -> 26
+    return dosUltimosDigitos.toString(36).toUpperCase(); // 26 -> Q
+  };
+  
+  const obtenerAleatorio = () => {
+    const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    return chars[Math.floor(Math.random() * chars.length)];
+  };
+  
+  const pad = (num) => String(num).padStart(2, '0');
+  
+  // B1: Y R R R (Año Base36 + 3 aleatorios)
+  const b1 = obtenerAñoBase36() + obtenerAleatorio() + obtenerAleatorio() + obtenerAleatorio();
+  
+  // B2: R R M M (2 aleatorios + Mes)
+  const mes = pad(ahora.getMonth() + 1); // 0-indexed, así que +1
+  const b2 = obtenerAleatorio() + obtenerAleatorio() + mes;
+  
+  // B3: R D D R (aleatorio + Día + aleatorio)
+  const dia = pad(ahora.getDate());
+  const b3 = obtenerAleatorio() + dia + obtenerAleatorio();
+  
+  // B4: H H M M (Hora y minutos exactos)
+  const hora = pad(ahora.getHours());
+  const minutos = pad(ahora.getMinutes());
+  const b4 = hora + minutos;
+  
+  return `${b1}-${b2}-${b3}-${b4}`;
+}
+
+/**
+ * Genera y actualiza el cupón en el enlace de WhatsApp al momento del clic
+ */
+function actualizarEnlaceConCupon(enlace, hrefOriginal) {
+  const cuponActual = generarCupon();
+  
+  try {
+    // Extraer el número y el mensaje manualmente para preservar el formato wa.me
+    const match = hrefOriginal.match(/wa\.me\/(\d+)\?text=(.+)/);
+    if (!match) return hrefOriginal;
+    
+    const numero = match[1];
+    let mensajeCodificado = match[2];
+    let mensaje = decodeURIComponent(mensajeCodificado);
+    
+    // Reemplazar PLACEHOLDER con el cupón dinámico
+    if (mensaje.includes('PLACEHOLDER')) {
+      mensaje = mensaje.replace(/PLACEHOLDER/g, cuponActual);
+    }
+    // Si tiene "Cupón:" pero sin un cupón válido, agregarlo después
+    else if (mensaje.includes('Cupón:')) {
+      mensaje = mensaje.replace(/(Cupón:\s*)([^\s]*)/i, `$1${cuponActual}`);
+    }
+    
+    // Reconstruir la URL manteniendo el formato wa.me
+    const nuevoHref = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+    
+    //console.log('✓ Cupón generado para este clic:', cuponActual);
+    return nuevoHref;
+  } catch (error) {
+    console.error('Error al generar cupón:', error);
+    return hrefOriginal;
+  }
+}
+
+/**
+ * Inicializa los event listeners en enlaces de WhatsApp
+ */
+function inicializarEnlacesWhatsApp() {
+  const enlacesWhatsApp = document.querySelectorAll('a[href*="wa.me"]');
+  
+  enlacesWhatsApp.forEach(enlace => {
+    const hrefOriginal = enlace.getAttribute('href');
+    
+    // Solo agregar listener a enlaces que tienen parámetro 'text=' (whatsappMsg)
+    if (hrefOriginal && hrefOriginal.includes('?text=')) {
+      // Guardar el href original como data attribute
+      enlace.setAttribute('data-href-original', hrefOriginal);
+      
+      // Agregar event listener para generar cupón al hacer clic
+      enlace.addEventListener('click', function(e) {
+        const href = this.getAttribute('data-href-original');
+        const nuevoHref = actualizarEnlaceConCupon(this, href);
+        this.setAttribute('href', nuevoHref);
+      });
+    }
+  });
+  
+  //console.log('✓ Enlaces de WhatsApp inicializados (cupón se generará al hacer clic)');
+}
+
+// ============================================
 // CONTROL DE CONTENIDO TEMPORAL POR FECHAS
 // ============================================
 
@@ -30,10 +141,10 @@ function manejarContenidoTemporal() {
       
       if (estaActivo) {
         elemento.style.display = ''; // Mostrar
-        console.log('Contenido temporal visible:', elemento.className);
+        //console.log('Contenido temporal visible:', elemento.className);
       } else {
         elemento.style.display = 'none'; // Ocultar
-        console.log('Contenido temporal oculto:', elemento.className);
+        //console.log('Contenido temporal oculto:', elemento.className);
       }
       
       // Log para debugging (opcional, comentar en producción)
@@ -42,7 +153,7 @@ function manejarContenidoTemporal() {
       const minutosRestantes = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
       
       if (estaActivo) {
-        console.log(`Tiempo restante: ${horasRestantes}h ${minutosRestantes}m`);
+        //console.log(`Tiempo restante: ${horasRestantes}h ${minutosRestantes}m`);
       }
       
     } catch (error) {
@@ -135,6 +246,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Controlar contenido temporal
   manejarContenidoTemporal();
   
+  // Inicializar enlaces de WhatsApp para generar cupón al hacer clic
+  inicializarEnlacesWhatsApp();
+  
   // Revisar cada minuto si el contenido temporal debe cambiar
   setInterval(manejarContenidoTemporal, 60000); // 60000ms = 1 minuto
 });
@@ -157,7 +271,10 @@ document.addEventListener('DOMContentLoaded', () => {
   
   whatsappLinks.forEach((link, index) => {
     link.addEventListener('click', () => {
-      const section = link.closest('section')?.className || 'unknown';
+      const section = link.closest('section')?.className || 
+                     link.className || 
+                     link.parentElement?.className || 
+                     'whatsapp-link';
       trackWhatsAppClick(section);
     });
   });
@@ -289,3 +406,6 @@ const compartirPagina = async () => {
 // Exponer funciones globalmente si son necesarias
 window.copiarCupon = copiarCupon;
 window.compartirPagina = compartirPagina;
+window.generarCupon = generarCupon;
+window.actualizarEnlacesWhatsApp = actualizarEnlacesWhatsApp;
+inicializarEnlacesWhatsApp = inici
