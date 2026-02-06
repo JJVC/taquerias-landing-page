@@ -22,8 +22,8 @@ function generarCupon() {
   // Funciones auxiliares
   const obtenerAñoBase36 = () => {
     const año = ahora.getFullYear();
-    const dosUltimosDigitos = año % 100; // 2026 -> 26
-    return dosUltimosDigitos.toString(36).toUpperCase(); // 26 -> Q
+    const añoCiclo36 = año % 36; // 2026 -> 10, garantiza 1 carácter en Base36 (0-35)
+    return añoCiclo36.toString(36).toUpperCase(); // 10 -> A
   };
   
   const obtenerAleatorio = () => {
