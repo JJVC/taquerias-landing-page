@@ -30,9 +30,9 @@
   {{ content | safe }}
   
   <!-- WhatsApp Floating Button -->
-  ---{% set floatingWhatsappMsg = (data.mensajeWhatsApp ~ ' - Cupón: PLACEHOLDER') | urlencode %}---
-  ---{% set floatingWhatsappMsg = (data.mensajeWhatsApp) | urlencode %}---
-  ---{% set floatingWhatsappNumber = data.contacto.whatsapp | replace('+', '') %}---
+  {#% set floatingWhatsappMsg = (data.mensajeWhatsApp ~ ' - Cupón: PLACEHOLDER') | urlencode %#}
+  {#% set floatingWhatsappMsg = (data.mensajeWhatsApp) | urlencode %#}
+  {#% set floatingWhatsappNumber = data.contacto.whatsapp | replace('+', '') %#}
   <a href="#promociones" 
      class="whatsapp-float" 
      target="_blank"
