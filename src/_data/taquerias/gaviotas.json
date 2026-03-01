@@ -45,9 +45,9 @@
   "promociones": {
     "lista": [
       {
-        "icono": "🎟️ = 🍽 +🥤",
+        "icono": "🎟️",
         "titulo": "1 Kilo de Pastor",
-        "descripcion": "Disfruta de 1 kilo de Pastor + de 1 litro de agua de Jamaica o Horchata GRATIS",
+        "descripcion": "Disfruta de 1 kilo de Pastor + 1 litro de agua de Horchata o Jamaica GRATIS",
         "monto": 320,
         "action": [
           {"nombre":"Horchata","messageWhatsApp":"¡Hola Taquería Gaviotas! 🌮 Me puede mandar la PROMOCIÓN (KILO PASTOR + Horchata de 1L) con el"},
@@ -55,7 +55,7 @@
         ]
       },
       {
-        "icono": "🎟️ = 🍽 +🥤",
+        "icono": "🎟️",
         "titulo": "2 Ordenes de tacos al Pastor",
         "descripcion": "Recibe 2 ordenes de tacos al Pastor (10 tacos) acompañadas de 1 litro de Agua o Refresco 600 ml GRATIS",
         "monto": 149,

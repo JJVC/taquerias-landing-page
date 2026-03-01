@@ -4,7 +4,7 @@
    ============================================ */
 :root {
   /* Colores Principales */
-  --color-primario: #FF6B35;      /* Naranja */
+  --color-primario: #ee774c;      /* Naranja FF6B35*/
   --color-secundario: #006847;    /* Verde Bandera */
   --color-acento: #4A90E2;        /* Azul Marino Claro */
   --color-fondo: #000000;         /* Negro */
@@ -651,9 +651,8 @@ a {
 }
 
 .promo-minimo {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: var(--spacing-sm) 0;
-  color: var(--color-acento);
 }
 
 .promo-acciones-label {
@@ -983,6 +982,25 @@ a {
 @media (max-width: 768px) {
   .container {
     padding: 0 var(--spacing-sm);
+  }
+
+  .promo-actions {
+    gap: 0.5rem;
+  }
+
+  .promo-actions .btn {
+    flex: 1 1 180px;
+    max-width: 280px;
+    padding: 0.65rem 1rem;
+    border-width: 1px;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+
+  .promo-actions .whatsapp-icon {
+    width: 20px;
+    height: 20px;
   }
   
   .hero {
