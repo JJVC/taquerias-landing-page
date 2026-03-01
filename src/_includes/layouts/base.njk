@@ -30,9 +30,10 @@
   {{ content | safe }}
   
   <!-- WhatsApp Floating Button -->
-  {% set floatingWhatsappMsg = (data.mensajeWhatsApp ~ ' - Cupón: PLACEHOLDER') | urlencode %}
-  {% set floatingWhatsappNumber = data.contacto.whatsapp | replace('+', '') %}
-  <a href="https://wa.me/{{ floatingWhatsappNumber }}?text={{ floatingWhatsappMsg }}" 
+  ---{% set floatingWhatsappMsg = (data.mensajeWhatsApp ~ ' - Cupón: PLACEHOLDER') | urlencode %}---
+  ---{% set floatingWhatsappMsg = (data.mensajeWhatsApp) | urlencode %}---
+  ---{% set floatingWhatsappNumber = data.contacto.whatsapp | replace('+', '') %}---
+  <a href="#promociones" 
      class="whatsapp-float" 
      target="_blank"
      rel="noopener noreferrer"
@@ -40,7 +41,7 @@
     <svg viewBox="0 0 32 32" fill="currentColor">
       <path d="M16 0C7.164 0 0 7.164 0 16c0 2.829.744 5.482 2.038 7.782L0 32l8.4-2.02C10.652 31.248 13.248 32 16 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm0 29.333c-2.547 0-4.924-.714-6.951-1.951l-.498-.293-5.16 1.244 1.271-5.026-.322-.516C2.755 20.764 2 18.458 2 16 2 8.28 8.28 2 16 2s14 6.28 14 14-6.28 13.333-14 13.333zm7.747-10.027c-.425-.213-2.516-1.24-2.907-1.382-.391-.142-.676-.213-.96.213-.285.425-1.102 1.382-1.351 1.667-.249.284-.498.32-.924.107-.425-.213-1.795-.662-3.418-2.109-1.264-1.127-2.116-2.518-2.364-2.942-.249-.425-.027-.655.186-.867.191-.191.425-.498.638-.747.213-.249.284-.425.425-.711.142-.284.071-.533-.036-.747-.107-.213-.96-2.311-1.316-3.164-.347-.831-.698-.718-.96-.731-.249-.013-.533-.016-.818-.016s-.747.107-1.138.533c-.391.425-1.493 1.458-1.493 3.555s1.529 4.125 1.742 4.409c.213.285 3.004 4.582 7.276 6.427 1.016.44 1.811.702 2.431.898.102.031 1.955.658 2.24.818.711.427 1.529.355 2.107.213.64-.16 2.516-1.029 2.871-2.022.355-.993.355-1.844.249-2.022-.107-.178-.391-.284-.818-.498z"/>
     </svg>
-    <span class="whatsapp-text">Pide Aquí</span>
+    <span class="whatsapp-text">Contactanos</span>
   </a>
   
   <script src="{{ '/js/main.js' | url }}"></script>

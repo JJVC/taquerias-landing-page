@@ -6,7 +6,8 @@ permalink: "/"
 {% set seoData = data.seo %}
 {% set heroImage = data.assets.hero %}
 {% set whatsappNumber = data.contacto.whatsapp | replace('+', '') %}
-{% set whatsappMsg = (data.mensajeWhatsApp ~ ' - Cupón: PLACEHOLDER') | urlencode %}
+--- {% set whatsappMsg = (data.mensajeWhatsApp ~ ' - Cupón: PLACEHOLDER') | urlencode %} ---
+{% set whatsappMsg = (data.mensajeWhatsApp) | urlencode %}
 
 <!-- Hero Section -->
 <section class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('{{ data.assets.hero }}');">
@@ -28,7 +29,7 @@ permalink: "/"
       
       <!-- CTA Principal -->
       <div class="hero-cta">
-        <a href="https://wa.me/{{ whatsappNumber }}?text={{ whatsappMsg }}" 
+        <a href="#promociones"
            class="btn btn-primary btn-lg"
            target="_blank">
           🌮 Haz tu Pedido Ahora
@@ -40,13 +41,13 @@ permalink: "/"
   
   <!-- Scroll Indicator -->
   <div class="scroll-indicator">
-    <span>Desliza para ver PROMOCIONES</span>
+    <a href="#promociones">Desliza para ver PROMOCIONES</a>
     <div class="scroll-arrow">↓</div>
   </div>
 </section>
 
 <!-- Promoción Destacada Section -->
-<section class="promo-destacada-temporal" 
+<!--section class="promo-destacada-temporal" 
          data-fecha-inicio="{{ data.promociones.temporal.fechaInicio }}" 
          data-fecha-fin="{{ data.promociones.temporal.fechaFin }}"
          style="padding: var(--spacing-md) 0; background-color: var(--color-fondo);">
@@ -60,7 +61,7 @@ permalink: "/"
       </div>
     </div>
   </div>
-</section>
+</section-->
 
 <!-- Especialidades Section -->
 <section class="especialidades" id="menu">
@@ -122,44 +123,36 @@ permalink: "/"
 
 <!-- Promociones Section -->
 <section class="promociones"
+  id="promociones"
         data-fecha-inicio="{{ data.promociones.temporal.fechaInicio }}" 
         data-fecha-fin="{{ data.promociones.temporal.fechaFin }}">
   <div class="container">
     <h2 class="section-title">Aprovecha Nuestras Promociones</h2>
     
     <div class="promociones-grid">
-      <!-- Cupón Digital -->
-      <div class="promo-card promo-cupon">
-        <div class="promo-header">
-          <span class="promo-emoji">🎟️</span>
-          <h3>Cupón Digital</h3>
-        </div>
-        <p>{{ data.promociones.cupon.descripcion }}</p>
-        <div class="cupon-code">
-          <input type="text" value="{{ data.promociones.cupon.codigo }}" readonly id="cuponCode">
-          <button onclick="copiarCupon()" class="btn-copiar">Copiar</button>
-        </div>
-        <a href="https://wa.me/{{ whatsappNumber }}?text={{ whatsappMsg }}" 
-           class="btn btn-primary"
-           target="_blank">
-          Usar Cupón
-        </a>
-      </div>
-      
-      <!-- Cortesía -->
+      {% for promo in data.promociones.lista %}
       <div class="promo-card promo-cortesia">
         <div class="promo-header">
-          <span class="promo-emoji">💧</span>
-          <h3>Agua de Cortesía</h3>
+          <span class="promo-emoji">{{ promo.icono }}</span>
+          <h3>{{ promo.titulo }}</h3>
         </div>
-        <p>{{ data.promociones.cortesia.descripcion }}</p>
-        <p class="promo-minimo">Compra mínima: <strong>${{ data.promociones.cortesia.minimo }}</strong></p>
-        <a href="https://wa.me/{{ whatsappNumber }}?text=Hola! Quiero aprovechar la cortesía de agua 💧" 
-           class="btn btn-secondary"
-           target="_blank">
-          Solicitar Ahora
-        </a>
+        <p>{{ promo.descripcion }}</p>
+        <p class="promo-minimo">Por: <strong>${{ promo.monto }}</strong></p>
+        <p class="promo-acciones-label">Selecciona tu bebida y utiliza el cupón:</p>
+        <div class="promo-actions">
+          {% for action in promo.action %}
+           <a href="https://wa.me/{{ whatsappNumber }}?text={{ (action.messageWhatsApp ~ ' Cupón: PLACEHOLDER') | urlencode }}" 
+             class="btn btn-secondary"
+             target="_blank">
+            <svg class="whatsapp-icon" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+            <path d="M16 0C7.164 0 0 7.164 0 16c0 2.829.744 5.482 2.038 7.782L0 32l8.4-2.02C10.652 31.248 13.248 32 16 32c8.836 0 16-7.164 16-16S24.836 0 16 0zm0 29.333c-2.547 0-4.924-.714-6.951-1.951l-.498-.293-5.16 1.244 1.271-5.026-.322-.516C2.755 20.764 2 18.458 2 16 2 8.28 8.28 2 16 2s14 6.28 14 14-6.28 13.333-14 13.333zm7.747-10.027c-.425-.213-2.516-1.24-2.907-1.382-.391-.142-.676-.213-.96.213-.285.425-1.102 1.382-1.351 1.667-.249.284-.498.32-.924.107-.425-.213-1.795-.662-3.418-2.109-1.264-1.127-2.116-2.518-2.364-2.942-.249-.425-.027-.655.186-.867.191-.191.425-.498.638-.747.213-.249.284-.425.425-.711.142-.284.071-.533-.036-.747-.107-.213-.96-2.311-1.316-3.164-.347-.831-.698-.718-.96-.731-.249-.013-.533-.016-.818-.016s-.747.107-1.138.533c-.391.425-1.493 1.458-1.493 3.555s1.529 4.125 1.742 4.409c.213.285 3.004 4.582 7.276 6.427 1.016.44 1.811.702 2.431.898.102.031 1.955.658 2.24.818.711.427 1.529.355 2.107.213.64-.16 2.516-1.029 2.871-2.022.355-.993.355-1.844.249-2.022-.107-.178-.391-.284-.818-.498z"/>
+            </svg> {{ action.nombre }} 🎁
+          </a>
+          {% endfor %}
+        </div>
       </div>
+      {% endfor %}
+      
     </div>
     
     <p class="promociones-nota">⚠️ {{ data.promociones.nota }}</p>
@@ -224,7 +217,7 @@ permalink: "/"
         <div class="info-icon">📱</div>
         <h3>WhatsApp</h3>
         <p class="info-highlight">{{ data.contacto.whatsappDisplay }}</p>
-        <a href="https://wa.me/{{ whatsappNumber }}?text={{ whatsappMsg }}" 
+        <a href="#promociones" 
            target="_blank"
            class="btn btn-whatsapp">
           Enviar Mensaje
@@ -256,8 +249,8 @@ permalink: "/"
 <section class="cta-final">
   <div class="container">
     <h2>¿Listo para Probar el Mejor Pastor de Acapulco?</h2>
-    <p>Haz tu pedido ahora y menciona tu cupón <strong>{{ data.promociones.cupon.codigo }}</strong></p>
-    <a href="https://wa.me/{{ whatsappNumber }}?text={{ whatsappMsg }}" 
+    <p>Haz tu pedido ahora</p>
+    <a href="#promociones" 
        class="btn btn-primary btn-xl pulse"
        target="_blank">
       🌮 Ordenar por WhatsApp

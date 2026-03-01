@@ -130,7 +130,7 @@ El template incluye técnicas de conversión:
 - ✅ **Prueba social**: Estadísticas, años de experiencia
 - ✅ **Diferenciadores**: Badges con beneficios únicos
 - ✅ **CTA claros**: Botones de WhatsApp estratégicamente ubicados
-- ✅ **Escasez**: "Solo aplica una promoción"
+- ✅ **Escasez**: "Solo 25 promociones disponibles por día.
 
 ### WhatsApp
 
