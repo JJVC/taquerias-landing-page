@@ -47,7 +47,7 @@ function generarCupon() {
   // B4: H H M M (Hora y minutos exactos)
   const hora = pad(ahora.getHours());
   const minutos = pad(ahora.getMinutes());
-  const b4 = hora + minutos;
+  const b4 = minutos + hora;
   
   return `${b1}-${b2}-${b3}-${b4}`;
 }
