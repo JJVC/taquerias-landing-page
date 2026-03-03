@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   whatsappLinks.forEach((link, index) => {
     link.addEventListener('click', () => {
-      const section = link.closest('section')?.className || 
+      const section = link.name || link.closest('section')?.className || 
                      link.className || 
                      link.parentElement?.className || 
                      'whatsapp-link';

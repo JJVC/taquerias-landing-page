@@ -988,7 +988,7 @@ a {
     gap: 0.5rem;
   }
 
-  .promo-actions .btn {
+  .btn {
     flex: 1 1 180px;
     max-width: 280px;
     padding: 0.65rem 1rem;
@@ -998,7 +998,7 @@ a {
     letter-spacing: 0.5px;
   }
 
-  .promo-actions .whatsapp-icon {
+  .whatsapp-icon {
     width: 20px;
     height: 20px;
   }
