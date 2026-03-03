@@ -26,6 +26,6 @@ module.exports = function(eleventyConfig) {
     templateFormats: ["html", "njk", "md"],
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk",
-    pathPrefix: "/taquerias-landing-page/"
+    pathPrefix: "/"
   };
 };
